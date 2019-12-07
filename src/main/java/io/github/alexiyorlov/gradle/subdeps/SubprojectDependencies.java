@@ -1,4 +1,4 @@
-package io.github.alexiyorlov.gradle;
+package io.github.alexiyorlov.gradle.subdeps;
 
 import com.google.common.collect.HashMultimap;
 import org.gradle.api.Plugin;
@@ -14,7 +14,7 @@ public class SubprojectDependencies implements Plugin<Project>
     @Override
     public void apply(Project project)
     {
-        SubDependecyConfig subDependecyExtension = project.getExtensions().create("subprojectDeps", SubDependecyConfig.class);
+        SubDependecyExtn subDependecyExtension = project.getExtensions().create("subprojectDeps", SubDependecyExtn.class);
         subDependecyExtension.setParentProject(project);
         if (subDependecyExtension.doLogging())
             System.out.println("Applying " + SubprojectDependencies.class.getSimpleName());

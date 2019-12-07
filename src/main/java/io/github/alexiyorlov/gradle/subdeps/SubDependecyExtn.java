@@ -1,4 +1,4 @@
-package io.github.alexiyorlov.gradle;
+package io.github.alexiyorlov.gradle.subdeps;
 
 import org.gradle.api.Project;
 
@@ -7,18 +7,18 @@ import java.util.Collection;
 import java.util.HashSet;
 
 @SuppressWarnings("unused")
-public class SubDependecyConfig
+public class SubDependecyExtn
 {
     private Project parentProject;
     private boolean doLogging = true;
     private HashSet<String> excludedProjects;
 
     private boolean simulate = true;
-    private boolean dependOnParent;
+    private boolean dependOnParent = true;
     private HashSet<Project> subprojects;
     private HashSet<String> passedConfigurations;
 
-    public SubDependecyConfig()
+    public SubDependecyExtn()
     {
         passedConfigurations = new HashSet<>(4);
         excludedProjects = new HashSet<>(3);
@@ -145,7 +145,7 @@ public class SubDependecyConfig
     }
 
     /**
-     * Whether to add a dependency on the parent project to the subprojects
+     * Whether to add a dependency on the parent project to the subprojects (true by default)
      */
     public void dependOnParent(boolean dependOnParent)
     {
