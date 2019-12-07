@@ -1,0 +1,28 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'io.github.alexiyorlov'
+version '1.0'
+
+sourceCompatibility=1.8
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // Use Guava in your implementation only:
+    implementation("com.google.guava:guava:28.1-jre")
+}
+publishing {
+
+    publications {
+        plugin(MavenPublication) {
+            groupId = group
+            artifactId = project.name
+            version = project.version
+            from components.java
+        }
+    }
+}
