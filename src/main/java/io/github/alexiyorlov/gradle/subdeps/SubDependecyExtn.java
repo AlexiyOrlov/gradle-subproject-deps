@@ -13,7 +13,7 @@ public class SubDependecyExtn
     private boolean doLogging = true;
     private HashSet<String> excludedProjects;
 
-    private boolean simulate = true;
+    private boolean simulate;
     private boolean dependOnParent = true;
     private HashSet<Project> subprojects;
     private HashSet<String> passedConfigurations;
@@ -132,7 +132,6 @@ public class SubDependecyExtn
 
     /**
      * If true, then all actions are simulated (do not affect the project).
-     * Initially set to 'true'
      */
     public boolean isSimulated()
     {
